@@ -1,0 +1,162 @@
+.control-bar {
+
+  display: table;
+  width: 100%;
+  height: 65px;
+
+  text-align: center;
+  background: $dark-grey-background;
+  color: $white;
+
+  i {
+    cursor: pointer;
+
+    @include transition(text-shadow 0.1s ease-in-out, color 0.1s ease-in-out);
+
+    &:hover {
+      text-shadow: -1px 1px 8px rgba($white, 0.3), 1px -1px 8px rgba($white, 0.3);
+    }
+  }
+
+  .playback-container,
+  .scrubber-container,
+  .globals-container {
+    display: table-cell;
+    padding: 0 $half-space;
+    vertical-align: middle;
+  }
+
+  .playback-container {
+    @extend %clearfix;
+    width: $sidebar-width;
+
+    .backward-container,
+    .play-pause-container,
+    .forward-container {
+      width: 33%;
+      float: left;
+    }
+
+    .backward-container {
+      text-align: left;
+    }
+
+    .play-pause-container i {
+      height: 30px;
+      width: 30px;
+      line-height: 26px;
+      @include border-radius(100%);
+      border: 2px solid $white;
+
+      &.fa-play {
+        letter-spacing: -2px; // Fix horizontal alignment issue with play icon
+      }
+    }
+
+    .forward-container {
+      text-align: right;
+    }
+
+    .backward-container i,
+    .forward-container i {
+      line-height: 30px;
+    }
+  }
+
+  .scrubber-container {
+    @extend .clearfix;
+
+    span.time-passed,
+    span.time-left {
+      display: block;
+      width: 5%;
+      float: left;
+
+      line-height: 26px;
+      color: $extra-light-grey-text;
+    }
+
+    .seek-scrubber {
+      position: relative;
+      display: block;
+      width: 89%;
+      height: 10px;
+      float: left;
+      top: 7px;
+
+      background: $hover-grey-background;
+
+      cursor: pointer;
+
+      .progress-fill {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        max-width: 100%;
+
+        background: rgba($white, 0.85);
+
+        @include box-shadow(-1px 1px 8px 0 rgba($white, 0.3), 1px -1px 8px 0 rgba($white, 0.3));
+        //@include transition(width 0.1s ease-in-out);
+      }
+    }
+  }
+
+  .globals-container {
+    @extend %clearfix;
+    width: $sidebar-width;
+
+    .volume-container,
+    .repeat-container,
+    .shuffle-container {
+      text-align: right;
+    }
+
+    .volume-container {
+      width: 40%;
+      float: left;
+
+      i {
+        float: left;
+        margin-right: 8px;
+      }
+
+      .volume-scrubber {
+        position: relative;
+        float: left;
+        width: 75%;
+        height: 10px;
+        top: 2px;
+
+        background: $hover-grey-background;
+
+        cursor: pointer;
+
+        .volume-fill {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+
+          background: rgba($white, 0.85);
+
+          @include box-shadow(-1px 1px 8px 0 rgba($white, 0.3), 1px -1px 8px 0 rgba($white, 0.3));
+          @include transition(width 0.1s ease-in-out);
+        }
+      }
+    }
+
+    .repeat-container,
+    .shuffle-container {
+      width: 30%;
+      float: left;
+
+      i.active {
+        color: $highlight;
+        text-shadow: -1px 1px 8px rgba($highlight, 0.3), 1px -1px 8px rgba($highlight, 0.3);
+      }
+    }
+  }
+
+}

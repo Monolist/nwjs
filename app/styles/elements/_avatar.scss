@@ -1,0 +1,18 @@
+.avatar {
+
+  position: relative;
+  background-color: $light-grey-border;
+  @include background-cover();
+  background-image: url('../images/user-image-placeholder.png'); // default image if user doesn't have picture
+  border: 3px solid lighten($light-grey-text, 5);
+  @include border-radius(100%);
+
+  a {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+}

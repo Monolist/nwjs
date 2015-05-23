@@ -1,0 +1,185 @@
+.track {
+
+  position: relative;
+
+  text-align: left;
+  background-color: transparent;
+  @include transition(background-color 0.1s ease-in-out, border-left-width 0.1s ease-in-out);
+  border-color: $highlight;
+  border-style: solid;
+  border-width: 0px;
+
+  .track-info-container {
+    display: table;
+    width: 100%;
+    min-height: (85px + $half-space*2);
+    cursor: pointer;
+
+    & > div {
+      display: table-cell;
+      height: 100%;
+      vertical-align: middle;
+
+      &:not(.source) {
+        border-bottom: 1px solid $light-grey-border;
+      }
+    }
+
+    .dropdown-icon-container {
+      text-align: center;
+      width: 30px + $half-space;
+      padding: 0 0 0 $half-space;
+
+      i {
+        height: 30px;
+        width: 30px;
+        line-height: 26px;
+        letter-spacing: -1px;
+        font-size: 20px;
+        color: $light-grey-text;
+        border-style: solid;
+        border-width: 3px;
+        border-color: $light-grey-text;
+        @include border-radius(100%);
+
+        cursor: pointer;
+        @include transition(color 0.1s ease-in-out, border-color 0.1s ease-in-out);
+
+        &:hover {
+          color: $highlight;
+          border-color: $highlight;
+        }
+      }
+    }
+
+    .artwork-container {
+      padding: $half-space 0 $half-space $half-space;
+      width: (85px - ($half-space + $half-space/2));
+
+      .artwork {
+        width: 85px;
+        height: 85px;
+
+        @include background-cover();
+
+        background-image: url('../images/track-art-placeholder.png'); // default image if track doesn't have artwork
+      }
+    }
+
+    .info-container {
+      padding: $half-space $half-space/2 $half-space $half-space;
+
+      .title, .artist {
+        margin: 0;
+      }
+
+      .title {
+        font-weight: 500;
+        color: $white;
+
+        span.duration {
+          @extend .small;
+          padding-left: 3px;
+          color: $light-grey-text;
+        }
+      }
+
+      .artist {
+        @extend .small;
+        font-weight: 300;
+      }
+    }
+
+    .options-container {
+      min-width: 110px;
+      padding: $half-space $half-space $half-space $half-space/2;
+      text-align: right;
+
+      .upvote-downvote-container,
+      .add-container {
+        font-size: 20px;
+
+        i {
+          cursor: pointer;
+          color: inherit;
+          @include transition(color 0.1s ease-in-out);
+        }
+      }
+
+      .upvote-downvote-container {
+        span.score,
+        i.upvote {
+          margin-right: $half-space/2;
+        }
+
+        span.score.upvoted,
+        i.upvote:hover,
+        i.upvote.active {
+          color: $highlight;
+        }
+
+        span.score.downvoted {
+          color: inherit;
+        }
+
+        span.score,
+        i.downvote:hover,
+        i.downvote.active {
+          color: $white;
+        }
+      }
+    }
+
+    .source {
+      position: relative;
+      width: 30px;
+      text-align: center;
+
+      font-size: 18px;
+      color: $white;
+      @include transition(background-color 0.1s ease-in-out);
+
+      &.soundcloud {
+        background-color: $soundcloud-orange;
+        &:hover { background-color: lighten($soundcloud-orange, 5); }
+      }
+
+      &.youtube {
+        background-color: $youtube-red;
+        &:hover { background-color: lighten($youtube-red, 5); }
+      }
+
+      &.bandcamp {
+        background-color: $bandcamp-blue;
+        &:hover { background-color: lighten($bandcamp-blue, 5); }
+      }
+
+      &.spotify {
+        background-color: $spotify-green;
+        &:hover { background-color: lighten($spotify-green, 5); }
+      }
+
+      a {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+    }
+  }
+
+  &.active {
+    background-color: $medium-dark-grey-background;
+    border-left-width: 8px;
+
+    &:hover {
+      background-color: $medium-dark-grey-background;
+    }
+  }
+
+  &:hover {
+    background-color: $hover-grey-background;
+  }
+
+}

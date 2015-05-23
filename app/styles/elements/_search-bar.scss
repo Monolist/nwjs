@@ -1,0 +1,29 @@
+.search-bar {
+
+  @extend %clearfix;
+
+  .icon-container, input {
+    float: left;
+  }
+
+  .icon-container {
+    width: 15%;
+    max-width: 35px;
+    font-size: 16px;
+    line-height: 25px;
+  }
+
+  input {
+    position: relative;
+    top: 2px;
+    width: 85%;
+    max-width: 300px;
+
+    border: none;
+    outline: none;
+    background: $dark-grey-background;
+    color: $light-grey-text;
+    font-size: 14px;
+  }
+
+}

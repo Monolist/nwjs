@@ -1,0 +1,43 @@
+{
+  "name": "Monolist",
+  "version": "0.1.0",
+  "author": "Jake Marsh <jakemmarsh@gmail.com>",
+  "description": "The io.js application for Monolist OSX and Windows clients.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jakemmarsh/monolist-app.git"
+  },
+  "private": true,
+  "engines": {
+    "node": "0.10.x"
+  },
+  "devDependencies": {
+    "browserify": "^5.10.0",
+    "gulp": "^3.8.8",
+    "gulp-rename": "^1.2.0",
+    "gulp-sass": "^0.7.2",
+    "run-sequence": "^0.3.6",
+    "gulp-uglify": "^1.0.1",
+    "vinyl-source-stream": "^0.1.1",
+    "gulp-util": "^3.0.1",
+    "watchify": "^1.0.2",
+    "reactify": "^0.14.0",
+    "gulp-if": "^1.2.4",
+    "gulp-notify": "^1.6.0",
+    "gulp-streamify": "0.0.5",
+    "del": "^0.1.3",
+    "gulp-karma": "0.0.4",
+    "gulp-awspublish": "0.0.23",
+    "node-webkit-builder": "^1.0.6",
+    "gulp-replace": "^0.5.0",
+    "gulp-imagemin": "^2.1.0",
+    "gulp-json-editor": "^2.2.1",
+    "gulp-shell": "^0.2.11",
+    "gulp-zip": "^2.0.2",
+    "dotenv": "^0.5.1"
+  },
+  "scripts": {
+    "start": "supervisor server.js",
+    "postinstall": "gulp prod"
+  }
+}

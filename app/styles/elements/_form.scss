@@ -1,0 +1,56 @@
+form {
+
+  .input-container {
+    display: table;
+    width: 100%;
+    margin-bottom: $half-space;
+
+    & > label, input, .input {
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    & > label {
+      width: 100px;
+      min-width: 100px;
+      text-transform: uppercase;
+      text-align: right;
+    }
+
+    & > input {
+      width: 100%;
+      padding: $half-space/2;
+
+      border: none;
+      outline: none;
+      background: $dark-grey-background;
+      color: $light-grey-text;
+      font-size: 14px;
+    }
+
+    & > .input {
+      width: 100%;
+      text-align: left;
+
+      select {
+        width: 20%;
+      }
+    }
+  }
+
+  label {
+    color: inherit;
+    @include transition(color 0.1s ease-in-out);
+
+    &.active { color: $highlight; }
+  }
+
+  input:disabled {
+    background-color: $medium-grey-background !important;
+  }
+
+  .submit-container {
+    text-align: right;
+  }
+
+}

@@ -1,0 +1,115 @@
+header {
+
+  position: fixed;
+  display: table;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: $header-height;
+
+  text-align: left;
+
+  background: $dark-grey-background;
+  color: $dark-grey-text;
+
+  & > * {
+    display: table-cell;
+    padding: 0 $half-space;
+    vertical-align: middle;
+  }
+
+  .back-arrow-container {
+    width: 60px;
+    @include border-image($grey-border, rgba(0, 0, 0, 0));
+    border-width: 0 1px 0 0;
+    border-style: solid;
+    border-color: $grey-border;
+
+    .back-arrow {
+      line-height: 45px;
+      font-size: 20px;
+      cursor: pointer;
+      color: $light-grey-text;
+      @include transition(color 0.1s ease-in-out);
+
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+
+  .user-options-container {
+    width: $sidebar-width;
+    @include border-image($grey-border, rgba(0, 0, 0, 0));
+    border-width: 0 0 0 1px;
+    border-style: solid;
+    border-color: $grey-border;
+
+    color: $light-grey-text;
+
+    .dropdown-toggle-container {
+      position: relative;
+      display: table;
+      height: 45px;
+      float: right;
+
+      background-color: $medium-dark-grey-background;
+      @include transition(background-color 0.1s ease-in-out);
+
+      cursor: pointer;
+
+      .avatar-container,
+      .arrow-container {
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+
+        padding: $half-space/2;
+      }
+
+      .avatar-container {
+        display: table;
+
+        .avatar,
+        span.username {
+          display: table-cell;
+          vertical-align: middle;
+        }
+
+        .avatar {
+          width: 25px !important;
+          height: 25px !important;
+        }
+
+        span.username {
+          padding-left: $half-space/2;
+        }
+      }
+
+      &:hover,
+      &.active {
+        background-color: $hover-grey-background;
+      }
+    }
+
+    .register-login-container {
+      list-style: none;
+      text-align: right;
+
+      li {
+        display: inline-block;
+
+        &.login-modal-link {
+          @extend a;
+          cursor: pointer;
+        }
+
+        &:not(:last-child) {
+          margin-right: $half-space;
+        }
+      }
+    }
+  }
+
+}

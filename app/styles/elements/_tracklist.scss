@@ -1,0 +1,17 @@
+ul.tracklist {
+
+  position: relative;
+  display: block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  & > li.track {
+    @extend .track;
+  }
+
+  &.has-control-bar {
+    top: $list-controls-height;
+  }
+
+}

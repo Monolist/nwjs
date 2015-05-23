@@ -1,0 +1,102 @@
+.list-controls-container {
+
+  z-index: 10;
+  position: fixed;
+  display: table;
+  width: 100%;
+  height: $list-controls-height;
+
+  background: $dark-grey-background;
+  @include box-shadow(0 3px 10px rgba($black, 0.3));
+
+  & > * {
+    display: table-cell;
+    padding: 0 $half-space;
+    vertical-align: middle;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+
+    li {
+      display: inline;
+      margin: 0;
+
+      label {
+        margin-left: $half-space/4;
+      }
+
+      &:not(:last-child) {
+        margin-right: $half-space;
+      }
+    }
+  }
+
+  ul.playlist-options {
+    li, a {
+      text-transform: lowercase;
+      font-weight: normal;
+      color: $dark-grey-text;
+      cursor: pointer;
+
+      @include transition(color 0.1s ease-in-out);
+
+      i {
+        margin-right: $half-space/2;
+        vertical-align: middle;
+
+        font-size: 16px;
+        color: $light-grey-text;
+      }
+
+      &:hover {
+        color: $light-grey-text;
+      }
+    }
+  }
+
+  &.playlist {
+    .options-container {
+      width: 75%;
+    }
+
+    .search-container {
+      width: 25%;
+    }
+  }
+
+  &.search {
+    .search-container {
+      width: 40%;
+    }
+
+    .loading-container {
+      width: 20%;
+      text-align: center;
+    }
+
+    .options-container {
+      width: 40%;
+
+      text-align: right;
+
+      ul { text-align: right; }
+    }
+  }
+
+
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: -#{$half-space};
+    right: 0;
+    left: 0;
+    height: $half-space;
+    background-color: $light-grey-background;
+  }
+
+}

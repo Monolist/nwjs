@@ -1,0 +1,39 @@
+ul.playlist-tags-container {
+
+  z-index: 5; // place above global playlist link
+
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li.tag {
+    position: relative;
+    display: inline-block;
+    width: auto;
+    padding: $half-space/4;
+    margin: $half-space/2 $half-space/2 0 0;
+
+    white-space: nowrap;
+    text-transform: lowercase;
+    font-size: 14px;
+    background: $light-grey-background;
+    color: $light-grey-text;
+    @include transition(color 0.1s ease-in-out);
+
+    cursor: pointer;
+
+    &:hover {
+      color: $white;
+    }
+
+    a {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+}

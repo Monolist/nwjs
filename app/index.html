@@ -1,0 +1,47 @@
+<!doctype html>
+<html class="no-js" lang="" itemscope itemtype="http://schema.org/Article" style="background-color: #3b3f53;">
+
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width">
+
+      <meta itemprop="name" content="">
+      <meta itemprop="image" content="">
+
+      <meta property="og:image" content="" />
+      <meta property="og:title" content="" />
+      <meta property="og:url" content="" />
+      <meta property="og:site_name" content="Monolist" />
+
+      <title>Monolist</title>
+
+      <link rel="stylesheet" href="css/main.min.css">
+  </head>
+
+  <body style="background-color: #3b3f53;">
+    <div id="app"></div>
+    <div id="fb-root"></div>
+    <script src="js/main.min.js"></script>
+  </body>
+
+  <script>
+    var os            = !!require ? require('os') : null;
+    var nwGuiDefined  = global.window.nwDispatcher && global.window.nwDispatcher.requireNwGui;
+    var gui           = nwGuiDefined ? global.window.nwDispatcher.requireNwGui() : null;
+    var app           = gui ? gui.App : null;
+    var win           = gui ? gui.Window.get() : null;
+    var nativeMenuBar = gui ? new gui.Menu({ type: 'menubar' }) : null;
+    var macRegex      = new RegExp('mac', 'i');
+
+    if ( app ) {
+      app.clearCache();
+    }
+
+    if ( win && nativeMenuBar && os && (os.platform() === 'darwin' || macRegex.test(os.release())) ) {
+      nativeMenuBar.createMacBuiltin('Monolist');
+      win.menu = nativeMenuBar;
+    }
+  </script>
+
+</html>

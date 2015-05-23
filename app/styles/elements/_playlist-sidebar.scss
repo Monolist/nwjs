@@ -1,0 +1,85 @@
+.playlist-sidebar {
+
+  padding: $half-space;
+
+  .playlist-title {
+    font-weight: 300;
+    text-transform: uppercase;
+
+    i {
+      margin-left: $half-space/2;
+
+      font-size: 80%;
+      color: $dark-grey-text;
+    }
+  }
+
+  .action-buttons-container .action-button {
+    background-color: $medium-dark-grey-background;
+
+    i {
+      color: inherit;
+    }
+
+    &:hover, &:active {
+      background-color: $hover-grey-background;
+
+      i {
+        color: $white;
+      }
+    }
+
+    &.inactive {
+      i.fa-heart {
+        color: $red;
+        text-shadow: -1px 1px 8px rgba($red, 0.3), 1px -1px 8px rgba($red, 0.3);
+      }
+
+      i.fa-share-alt {
+        color: $highlight;
+        text-shadow: -1px 1px 8px rgba($highlight, 0.3), 1px -1px 8px rgba($highlight, 0.3);
+      }
+    }
+  }
+
+  .playlist-image-container {
+    width: 225px;
+    height: 225px;
+    margin: 0 auto $half-space;
+
+    background-color: $light-grey-background;
+    @include background-cover();
+    background-image: url('../images/playlist-art-placeholder.png'); // default image if playlist doesn't have artwork
+    border: 3px solid lighten($light-grey-text, 5);
+    @include border-radius(100%);
+  }
+
+  .stats-container {
+    display: table;
+    width: 100%;
+    margin-bottom: $half-space;
+
+    .play-count-container,
+    .like-count-container {
+      display: table-cell;
+      width: 50%;
+      text-align: center;
+      vertical-align: middle;
+
+      color: $white;
+
+      i {
+        margin-right: $half-space/4;
+
+        &.fa-heart {
+          color: $red;
+        }
+
+        &.fa-play {
+          color: $light-grey-text;
+        }
+      }
+    }
+  }
+
+}

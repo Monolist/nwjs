@@ -1,2 +1,3 @@
-# nwjs
-The OSX and Windows application, built via NW.js.
+Monolist
+========
+This is the node-webkit desktop application for Monolist.
